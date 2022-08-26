@@ -1,23 +1,18 @@
 `timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date:    16:38:56 01/15/2021 
-// Design Name: 
-// Module Name:    full_addr 
-// Project Name: 
-// Target Devices: 
-// Tool versions: 
-// Description: 
-//
-// Dependencies: 
-//
-// Revision: 
-// Revision 0.01 - File Created
-// Additional Comments: 
-//
-//////////////////////////////////////////////////////////////////////////////////
+
+/*
+/////////////////////////////////////////////
+//// COA LAB Assignment 3                ////
+//// Group Number 23                     ////
+//// Ashwani Kumar Kamal (20CS10011)     ////
+//// Astitva (20CS30007)                 ////
+/////////////////////////////////////////////
+*/
+
+// full adder
+// inputs: in1, in2, cin (cin is input carry)
+// outputs: out, cout (out is sum, cout is output carry)
+
 module full_addr(input in1,input in2,input cin,output out,output cout);
 
     // Behavioural design pattern

@@ -1,25 +1,21 @@
 `timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date:    16:38:05 01/15/2021 
-// Design Name: 
-// Module Name:    half_addr 
-// Project Name: 
-// Target Devices: 
-// Tool versions: 
-// Description: 
-//
-// Dependencies: 
-//
-// Revision: 
-// Revision 0.01 - File Created
-// Additional Comments: 
-//
-//////////////////////////////////////////////////////////////////////////////////
+
+/*
+/////////////////////////////////////////////
+//// COA LAB Assignment 3                ////
+//// Group Number 23                     ////
+//// Ashwani Kumar Kamal (20CS10011)     ////
+//// Astitva (20CS30007)                 ////
+/////////////////////////////////////////////
+*/
+
+// half adder
+// inputs: in1, in2
+// outputs: out, cout (out is sum and cout is output carry)
+
 module half_addr(input in1,input in2,output out,output cout);
 
+    // behavioural design pattern
     assign out = in1 ^ in2;
     assign cout = in1 & in2;
     

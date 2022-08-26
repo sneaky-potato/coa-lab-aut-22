@@ -1,23 +1,18 @@
 `timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date:    16:37:23 01/15/2021 
-// Design Name: 
-// Module Name:    adder_struct 
-// Project Name: 
-// Target Devices: 
-// Tool versions: 
-// Description: 
-//
-// Dependencies: 
-//
-// Revision: 
-// Revision 0.01 - File Created
-// Additional Comments: 
-//
-//////////////////////////////////////////////////////////////////////////////////
+
+/*
+/////////////////////////////////////////////
+//// COA LAB Assignment 3                ////
+//// Group Number 23                     ////
+//// Ashwani Kumar Kamal (20CS10011)     ////
+//// Astitva (20CS30007)                 ////
+/////////////////////////////////////////////
+*/
+
+// ripple carry adder (8 bit)
+// inputs: in1 (8 bit), in2 (8 bit), cin (cin is input carry)
+// outputs: out (8 bit), cout (out is sum, cout is output carry)
+
 module ripple_carry_addr_8(
     input[7:0] in1, 
     input[7:0] in2, 
@@ -26,9 +21,13 @@ module ripple_carry_addr_8(
     output cout
     );
 
+    // auxiliary wires for internal connections
     wire w1, w2, w3;
     wire w4, w5, w6, w7;
     
+    // concatenating 8 full adders to make a ripple carry adder for 8 bits
+    // connect output of previous full adder with input of current full adder using wires
+    // Structural design pattern
     full_addr addr1(.in1(in1[0]),.in2(in2[0]),.cin(cin),.out(out[0]),.cout(w1));
     full_addr addr2(.in1(in1[1]),.in2(in2[1]),.cin(w1),.out(out[1]),.cout(w2));    
     full_addr addr3(.in1(in1[2]),.in2(in2[2]),.cin(w2),.out(out[2]),.cout(w3));

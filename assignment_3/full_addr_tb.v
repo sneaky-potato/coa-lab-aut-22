@@ -1,52 +1,60 @@
 `timescale 1ns / 1ps
 
-////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer:
-//
-// Create Date:   20:28:16 08/25/2021
-// Design Name:   
-// Module Name:   full_adder_tb
-// Project Name:  Ripple-Carry-Adder
-// Target Device:  
-// Tool versions:  
-// Description: 
-//
-// Verilog Test Fixture created by ISE for module: full_adder
-//
-// Dependencies:
-// 
-// Revision:
-// Revision 0.01 - File Created
-// 
-////////////////////////////////////////////////////////////////////////////////
+/*
+/////////////////////////////////////////////
+//// COA LAB Assignment 3                ////
+//// Group Number 23                     ////
+//// Ashwani Kumar Kamal (20CS10011)     ////
+//// Astitva (20CS30007)                 ////
+/////////////////////////////////////////////
+*/
 
-// Testbench for full adder module
+// full adder test bench
+
 module full_addr_tb;
 
-    // Inputs
-    reg A = 1'b0;
-    reg B = 1'b0; 
-    reg cin = 1'b0;
+    // A -> 1 bit input
+    // B -> 1 bit input
+    // cin -> 1 bit carry input 
+    // out -> 1 bit output (sum)
+    // cout -> 1 bit output (carry output)
+    reg A = 0;
+    reg B = 0; 
+    reg cin = 0;
 
-    // Outputs
-    wire out, cout;
+    // out -> 1 bit sum 
+    // cout -> 1 bit carry output
+    wire out; 
+    wire cout;
 
-    // Instantiate the unit under test
+    // instantiate full adder module and pass in the data 
     full_addr fa(.in1(A), .in2(B), .cin(cin), .out(out), .cout(cout));
 
+    // initial block to be executed at the start of the simulation (time 0)
     initial 
     begin
-        // Monitor the changes
-        $monitor("A = %b, B = %b, cin = %b, sum = %b, carry = %b", A, B, cin, out, cout);
+        // console the values 
+        $monitor("A = %d, B = %d, carry_in = %d, sum = %d, carry = %d", A, B, cin, out, cout);
         
-        #5 A = 1'b0; B = 1'b0; cin = 1'b1;
-        #5 A = 1'b0; B = 1'b1; cin = 1'b0;
-        #5 A = 1'b0; B = 1'b1; cin = 1'b1;
-        #5 A = 1'b1; B = 1'b0; cin = 1'b0;
-        #5 A = 1'b1; B = 1'b0; cin = 1'b1;
-        #5 A = 1'b1; B = 1'b1; cin = 1'b0;
-        #5 A = 1'b1; B = 1'b1; cin = 1'b1;
-        #5 $finish;
+        // update input values for testing the module (10 unit time delay)
+        A = 0; B = 0; cin = 0;
+        #10;
+        A = 0; B = 0; cin = 1;
+        #10;
+        A = 0; B = 1; cin = 0; 
+        #10;
+        A = 0; B = 1; cin = 1;
+        #10;
+        A = 1; B = 0; cin = 0; 
+        #10;
+        A = 1; B = 0; cin = 1;
+        #10;
+        A = 1; B = 1; cin = 0; 
+        #10;
+        A = 1; B = 1; cin = 1;
+        #10;
+
+        // finish initial block
+        $finish;
     end
 endmodule
