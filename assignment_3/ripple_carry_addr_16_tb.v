@@ -9,7 +9,7 @@
 /////////////////////////////////////////////
 */
 
-// 8 bit ripple carry adder test bench
+// 16 bit ripple carry adder test bench
 
 module ripple_carry_addr_16_tb;
 
