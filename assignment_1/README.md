@@ -8,29 +8,22 @@ Directory for the `first` assignment of Computer Organisation Laboratory course 
 
 Read the assignment problem statement from [Assignment_1.pdf](/assignment_1/Assignment_1.pdf)
 
-- To generate the assembly code from given c code, use this
-
-```shell
-cc -Wall -S ass1.c
-```
-
-- To generate machine annotated assembly code, use this command
-
-```shell
-cc -Wall -fverbose-asm -S ass1.c
-```
+- Load the MIPS assembly files into a SPIM simulator (QtSpim was used to build and test these files) and simulate
 
 ## Solution
 
-GCC version information-  
+QtSpim version information-  
 
 ```shell
-gcc (GCC) 12.1.1 20220730
-Copyright (C) 2022 Free Software Foundation, Inc.
-This is free software; see the source for copying conditions.  There is NO
-warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+Version 9.1.22 of May 9, 2020
+SPIM is a simulator of the MIPS R3000 processor.
+Copyright (c) 1990-2015, James R. Larus (larus@larusstone.org).
+SPIM is distributed under a BSD license.
+For more information, source code, and binaries:
+https://sourceforge.net/projects/spimsimulator
+QtSPIM is linked to the Qt library, which is distributed under the GNU Lesser General Public License version 3 and GNU Lesser General Public License version 2.1.
 ```
 
->Generated assembly code might be slightly different depending on the compiler version
-
-The file [ass1_20CS10011.s](/assignment_1/ass1_20CS10011.s) contains the assignment submission file with comments describing *almost* all the lines of the assembly code.
+- [Q2_Grp_23.s](/assignment_1/Q2_Grp_23.s) is the solution file for second question
+- [Q3_Grp_23.s](/assignment_1/Q3_Grp_23.s) is the solution file for third question
+- [Q4_Grp_23.s](/assignment_1/Q4_Grp_23.s) is the solution file for fourth question
