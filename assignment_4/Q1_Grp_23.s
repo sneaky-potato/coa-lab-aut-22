@@ -153,13 +153,6 @@ pushToStack:
     sw      $a0, 0($sp)                         # Store $a0 in stack
     jr      $ra                                 # jump to return address
 
-
-# Function to pop an element from stack
-popFromStack:
-    addi    $sp, $sp, 4                         # increment stack pointer by 4
-    jr      $ra                                 # jump to return address
-
-
 # Function to allocate memory for n * n integers on stack
 mallocInStack:
     sll     $t0, $a0, 2                         # $t0 = $a0 * 4 = 4*n*n
@@ -220,21 +213,25 @@ recursive_determinant:
     jal     pushToStack                         # push $a0 to stack
     move    $a0, $t0                            # $a0 = $t0, $t0 stores return address($ra)
     jal     pushToStack                         # push $a0 to stack
+
     li      $t0, 1                              # $t0 = 1
     lw      $t1, 8($sp)                         # $t1 = n as ($sp - 8) stores address of n
     beq     $t0, $t1, base_case                # check if n != 1, if n != 1 jump to not_equal1
    
     li      $v0, 0                              # stores determinant value, initialized to det(A) = 0
+
     move    $a0, $v0                            # $a0 = $v0
     jal     pushToStack                         # push $a0 to stack
+
     li      $t0, 1                              # stores sign, initialized to 1
     move    $a0, $t0                            # $a0 = $t0
     jal     pushToStack                         # push $a0(currently stores sign) to stack
+    
     lw      $t2, 16($sp)                        # $t2 stores n
     li      $t0, 0                              # $t0 stores loop_counter, initialized to 0
 
-loopDet: 
-    beq     $t0, $t2, end_loop                  # check if j == n, if yes exit from loop and jump to end_loop
+for_loop_determinant: 
+    beq     $t0, $t2, exit_for_loop                  # check if j == n, if yes exit from loop and jump to end_loop
     move    $t6, $t0                            # $t6 stores j
     move    $a0, $t0                            # $a0 = $t0, $t0 stores loop counter j
     jal     pushToStack                         # pust $a0 (currently stores loop counter) to stack
@@ -290,16 +287,17 @@ end_ofillA:
     lw      $t2, 0($sp)                         # $t2 stores n-1
     move    $t0, $t2                            # $t0 = n-1
     mul     $t0, $t0, $t0                       # $t0 stores (n-1)*(n-1)
-    jal     popFromStack                        # pop top element (i.e., n-1) from stack
+
+    addi    $sp, $sp, 4                         # pop top element (i.e., n-1) from stack
     sll     $t0, $t0, 2                         # $t0 = 4*(n-1)*(n-1)
     add     $sp, $sp, $t0                       # pop matrix A' from stack
     lw      $t0, 0($sp)                         # load loop counter back in $t0
-    jal     popFromStack                        # pop loop counter from stack
+    addi    $sp, $sp, 4                         # pop loop counter from stack
     lw      $t1, 0($sp)                         # load sign from stack
-    jal     popFromStack                        # pop sign from stack
+    addi    $sp, $sp, 4                         # pop sign from stack
 
     lw      $t3, 0($sp)                         # load current value of det from loop
-    jal     popFromStack                        # pop current value of det from stack
+    addi    $sp, $sp, 4                         # pop current value of det from stack
     mul     $t4, $v0, $t1                       # $t4 = recursiveDet(A', n-1)*sign
     lw      $t5, 4($sp)                         # load address of 1st element of A in $t5
     move    $t6, $t0                            # $t6 = j(loop counter)
@@ -319,12 +317,12 @@ end_ofillA:
     
     addi    $t2, $t2, 1                         # $t2 = n
     addi    $t0, $t0, 1                         # $t0 = j+1
-    j       loopDet                             # unconditional jump to loopDet
+    j       for_loop_determinant                             # unconditional jump to loopDet
 
-end_loop:
-    jal     popFromStack                        # pop sign from stack
+exit_for_loop:
+    addi    $sp, $sp, 4                         # pop sign from stack
     lw      $v0, 0($sp)                         # $v0 = Det(A)
-    jal     popFromStack                        # pop determinant value from stack
+    addi    $sp, $sp, 4                         # pop determinant value from stack
     lw      $ra, 0($sp)                         # restore return address
     addi    $sp, $sp, 12                        # pop 3 elements from stack
     jr      $ra                                 # jump to return address
