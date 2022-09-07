@@ -279,12 +279,12 @@ inner_cofactor_loop:
     addi    $t1, $t1, -4                        # $t1 = $t1 - 4
     addi    $t7, $t7, -4                        # $t7 <- &A[row][col+1]
     addi    $t3, $t3, 1                         # $t3 <- $t3 + 1, increment col
-    j       inner_cofactor_loop                 # continue to inner_cofacoor_loop
+    j       inner_cofactor_loop                 # continue to inner_cofactor_loop
 
 increment_col:
     addi    $t3, $t3, 1                         # $t3 = $t3 + 1, increment col
     addi    $t7, $t7, -4                        # $t7 <- &A[row][col+1] (next element)
-    j       inner_cofactor_loop                 # continue to inner_fillA
+    j       inner_cofactor_loop                 # continue to inner_cofactor_loop
 
 exit_inner_loop:
     addi    $t2, $t2, 1                         # $t2 = $t2 + 1, increment row
