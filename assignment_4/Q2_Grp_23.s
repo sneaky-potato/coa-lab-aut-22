@@ -153,8 +153,7 @@ recursive_sort:
     lw      $s1, 12($sp)                    # r = right ($s1 stores r)
 
 outer_while:
-    blt     $s0, $s1, inner_while_l         # if l < r, jump to inner_while_1
-    j       return                          # jump to return
+    bge     $s0, $s1, return         # if l >= r, jump to return from sort
 
 inner_while_l:
     lw      $t0, 12($sp)                    # $t0 = right
@@ -171,14 +170,14 @@ inner_while_l:
     add     $t1, $t0, $t1                   # $t1 = A + 4*p
     lw      $t3, 0($t1)                     # $t3 = A[p]
 
-    bgt     $t2, $t3, inner_while_r        # if A[l] > A[p], then jump to inner_while_2
+    bgt     $t2, $t3, inner_while_r         # if A[l] > A[p], then jump to inner_while_2
 
     addi    $s0, $s0, 1                     # l++
     j       inner_while_l                   # continue inner_while_1 loop
 
 inner_while_r:
-    lw      $t0, 16($sp)                    # $t0 = right
-    ble     $s1, $t0, recurse               # if r <= left, then jump to recurse
+    lw      $t0, 16($sp)                    # $t0 = left
+    ble     $s1, $t0, swap_and_recurse               # if r <= left, then jump to recurse
 
     lw      $t0, 20($sp)                    # $t0 = address of A
 
@@ -191,13 +190,13 @@ inner_while_r:
     add     $t1, $t0, $t1                   # $t1 = A + 4*p
     lw      $t3, 0($t1)                     # $t3 = A[p]
 
-    blt     $t2, $t3, recurse               # if A[r] < A[p], then jump to recurse
+    blt     $t2, $t3, swap_and_recurse               # if A[r] < A[p], then jump to recurse
 
     addi    $s1, $s1, -1                    # r--
     j       inner_while_r                   # continue inner_while_2 loop
 
-recurse:
-    blt     $s0, $s1, swap_lr               # if l < r, jump to swap_lr
+swap_and_recurse:
+    blt     $s0, $s1, regular_swap               # if l < r, jump to swap_lr
     lw      $t0, 20($sp)                    # $t0 = address of A
 
     lw      $t1, 16($sp)                    # p = left
@@ -221,7 +220,7 @@ recurse:
 
     j       return                          # jump to return
 
-swap_lr:
+regular_swap:
     lw      $t0, 20($sp)                    # $t0 = address of A
 
     sll     $t1, $s0, 2                     # $t1 = 4 * l
@@ -236,13 +235,13 @@ swap_lr:
 swap:
     lw      $t0, 0($a0)                     # $t0 = array element with address $a0
     lw      $t1, 0($a1)                     # $t1 = array element with address $a1
-    sw      $t1, 0($a0)                     # updates value of array element at address $a0
     sw      $t0, 0($a1)                     # updates value of array element at address $a1
+    sw      $t1, 0($a0)                     # updates value of array element at address $a0
     jr      $ra                             # jump to return address
 
 return:
-    lw      $ra, 8($sp)                     # retrieve value of $ra from stack
-    lw      $s0, 4($sp)                     # restore value of $s0
     lw      $s1, 0($sp)                     # restore value of $1
+    lw      $s0, 4($sp)                     # restore value of $s0
+    lw      $ra, 8($sp)                     # retrieve value of $ra from stack
     addi    $sp, $sp, 24                    # restore stack pointer
     jr      $ra                             # jump to return address
