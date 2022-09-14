@@ -16,17 +16,21 @@
 module dff_struct(
     input d,
     input clk,
-    output q,
-    input rst
+    input rst,
+    output q
     );
 
     reg t = 0;
+
+    // output q <- t
     assign q = t;
 
     always@(posedge clk or posedge rst)
     begin
+        // if reset bit is 1 then t <- 0
         if(rst) 
             t = 0;
+        // else continue t <- d
         else 
             t = d;
     end
