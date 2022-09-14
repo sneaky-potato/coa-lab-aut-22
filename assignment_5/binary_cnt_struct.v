@@ -15,14 +15,22 @@
 
 module binary_cnt_struct(input clk, input rst, output wire [3:0] cnt);
 
-    wire[3:0] sum_out;
-    wire C;
+    wire[3:0] s_out;
+    wire cout;
 
-    dff_struct d1(sum_out[0], clk, cnt[0], rst);
-    dff_struct d2(sum_out[1], clk, cnt[1], rst);
-    dff_struct d3(sum_out[2], clk, cnt[2], rst);
-    dff_struct d4(sum_out[3], clk, cnt[3], rst);
+    // pass in values
+    // in1 <- cnt
+    // in2 <- 0001
+    // cin <- 0
+    // s_out <- out
+    // cout <- cout
+    ripple_carry_addr_4 rca_4(.in1(cnt), .in2(4'd0), .cin(1'b1), .out(s_out), .cout(cout));
 
-    ripple_carry_addr_4 rca_4(cnt, 1'b0, sum_out, C);
+    // use the dff to assign bit values of the counter sum (s_out) to original counter (cnt) 
+    dff_struct d1(s_out[0], clk, rst, cnt[0]);
+    dff_struct d2(s_out[1], clk, rst, cnt[1]);
+    dff_struct d3(s_out[2], clk, rst, cnt[2]);
+    dff_struct d4(s_out[3], clk, rst, cnt[3]);
+
 
 endmodule
