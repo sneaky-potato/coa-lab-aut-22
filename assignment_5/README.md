@@ -8,6 +8,30 @@ Directory for the `fifth` assignment of Computer Organisation Laboratory course 
 
 Read the assignment problem statement from [Assignment_5.pdf](/assignment_5/Assignment_5.pdf)
 
+- For building the binary for first part, use-
+
+```shell
+iverilog binary_cnt_tb.v binary_cnt.v -o a.out
+```
+
+- For building the binary for second part, use-
+
+```shell
+iverilog binary_cnt_struct_tb.v binary_cnt_struct.v dff_struct.v add_by_one.v -o b.out
+```
+
+Alternatively, run the make rule for compiling both binaries-
+
+```shell
+make
+```
+
+Make rule for cleaning the binaries after testing-
+
+```shell
+make clean
+```
+
 ## Solution
 
 iverilog version information-  
@@ -23,4 +47,4 @@ Copyright 1998-2020 Stephen Williams
 - [binary_cnt.v](/assignment_5/binary_cnt.v) is the verilog module for first part
 - [binary_cnt_tb.v](/assignment_5/binary_cnt_tb.v) is the verilog testbench for `binary_cnt.v`
 - [binary_cnt_struct.v](/assignment_5/binary_cnt_struct.v) is the verilog module for second part
-- [binary_cnt_struct_tb.v](/assignment_5/binary_cnt_struct_tb.v) is the verilog module for second part
+- [binary_cnt_struct_tb.v](/assignment_5/binary_cnt_struct_tb.v) is the verilog testbench for `binary_cnt_struct.v`
