@@ -44,7 +44,7 @@ endmodule
 // inputs: in1 (4 bit), in2 (4 bit) (taken by default 0001 here), cin (cin is input carry)
 // outputs: out (4 bit), cout (out is sum, cout is output carry)
 
-module ripple_carry_addr_4(
+module add_by_one(
     input[3:0] in1, 
     input[3:0] in2,
     input cin, 
