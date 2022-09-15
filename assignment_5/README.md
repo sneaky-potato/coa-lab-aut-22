@@ -34,6 +34,8 @@ make clean
 
 ## Solution
 
+### Testing on iverilog
+
 iverilog version information-  
 
 ```shell
@@ -48,3 +50,24 @@ Copyright 1998-2020 Stephen Williams
 - [binary_cnt_tb.v](/assignment_5/binary_cnt_tb.v) is the verilog testbench for `binary_cnt.v`
 - [binary_cnt_struct.v](/assignment_5/binary_cnt_struct.v) is the verilog module for second part
 - [binary_cnt_struct_tb.v](/assignment_5/binary_cnt_struct_tb.v) is the verilog testbench for `binary_cnt_struct.v`
+
+### Simulating on FPGA using IMPACT 10.0
+
+Simulation was done on the `Spatan3` FPGA board for `Grp 23` in Hardware Laboratory, CSE Department, IIT Kharagpur.
+
+Specifications of hardware FPGA used for simulating the counter-
+
+```shell
+Spartan3
+XC3S400
+PQ208
+-3
+```
+
+- [clk_divider.v](/assignment_5/clk_divider.v) is the verilog module implmenting a simple clock divider (to take care of vision persistence as mentioned in problem statement). It produces a clock bit which is much slower than the FPGA clock speed.
+
+- [binary_cnt_clk.v](/assignment_5/binary_cnt_clk.v) is the wrapper verilog module for behavioural counter using clock from the clock divider.
+- [binary_cnt_clk.ucf](/assignment_5/binary_cnt_clk.ucf) is the corresponding implementation constraints file.
+
+- [binary_cnt_struct_clk.v](/assignment_5/binary_cnt_struct_clk.v) is the wrapper verilog module for structural counter using clock from the clock divider.
+- [binary_cnt_struct_clk.ucf](/assignment_5/binary_cnt_struct_clk.ucf) is the corresponding implementation constraints file.
