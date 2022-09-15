@@ -1,0 +1,7 @@
+net "clk" loc = "p76";
+net "rst" loc = "p108";
+
+net "cnt[0]" loc = "p139";
+net "cnt[1]" loc = "p140";
+net "cnt[2]" loc = "p137";
+net "cnt[3]" loc = "p138";
