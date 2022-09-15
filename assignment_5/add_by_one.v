@@ -66,8 +66,8 @@ module add_by_one_carry(
     );
     
     // auxiliary wires for internal connections and carry bits
-    wire c0, c1, c2, c3;
-    wire w0, w1, w2, w3;
+    wire c1, c2, c3;
+    wire w0, w1, w2;
     // compute propagate and generate bits
     // but prop <- in1;
     // and gen <- 4'b0;
