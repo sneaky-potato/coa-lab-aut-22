@@ -20,8 +20,8 @@ module register_file (
     input regWrite,
     input [4:0] writeReg,
     input [31:0] writeData,
-    output reg [31:0] rs_out,
-    output reg [31:0] rt_out
+    output [31:0] rs_out,
+    output [31:0] rt_out
     );
 
     // 32 x 32 2D array
@@ -41,9 +41,11 @@ module register_file (
         end 
     end
 
-    always @(*) begin
-        rs_out = registers[rs];
-        rt_out = registers[rt];
-    end
+    assign rs_out = registers[rs];
+    assign rt_out = registers[rt]; 
+    // always @(*) begin
+    //     rs_out = registers[rs];
+    //     rt_out = registers[rt];
+    // end
 
 endmodule
