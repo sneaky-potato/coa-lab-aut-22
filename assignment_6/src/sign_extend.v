@@ -9,7 +9,7 @@
 /////////////////////////////////////////////
 */
 
-// Main Processor module
+// extend sign module
 
 module sign_extend(
     input [5:0] opcode,

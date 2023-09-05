@@ -1,0 +1,87 @@
+Running: C:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\fuse.exe -intstyle ise -incremental -lib unisims_ver -lib unimacro_ver -lib xilinxcorelib_ver -o D:/COA_LAB/assignment_6/Assign_6_Grp_23/main_isim_beh.exe -prj D:/COA_LAB/assignment_6/Assign_6_Grp_23/main_beh.prj work.main work.glbl 
+ISim P.20131013 (signature 0x7708f090)
+Number of CPUs detected in this system: 4
+Turning on mult-threading, number of parallel sub-compilation jobs: 8 
+Determining compilation order of HDL files
+Analyzing Verilog file "D:/COA_LAB/assignment_6/Assign_6_Grp_23/../src/lcu_4.v" into library work
+Analyzing Verilog file "D:/COA_LAB/assignment_6/Assign_6_Grp_23/../src/cla_4_aug.v" into library work
+Analyzing Verilog file "D:/COA_LAB/assignment_6/Assign_6_Grp_23/../src/lcu_16.v" into library work
+Analyzing Verilog file "D:/COA_LAB/assignment_6/Assign_6_Grp_23/../src/cla_16_lcu.v" into library work
+Analyzing Verilog file "D:/COA_LAB/assignment_6/Assign_6_Grp_23/../src/shifter.v" into library work
+Analyzing Verilog file "D:/COA_LAB/assignment_6/Assign_6_Grp_23/../src/mux21_32b.v" into library work
+Analyzing Verilog file "D:/COA_LAB/assignment_6/Assign_6_Grp_23/../src/cla_32_lcu.v" into library work
+Analyzing Verilog file "D:/COA_LAB/assignment_6/Assign_6_Grp_23/../src/sign_extend.v" into library work
+Analyzing Verilog file "D:/COA_LAB/assignment_6/Assign_6_Grp_23/../src/register.v" into library work
+Analyzing Verilog file "D:/COA_LAB/assignment_6/Assign_6_Grp_23/../src/program_cnt_adder.v" into library work
+Analyzing Verilog file "D:/COA_LAB/assignment_6/Assign_6_Grp_23/../src/program_cnt.v" into library work
+Analyzing Verilog file "D:/COA_LAB/assignment_6/Assign_6_Grp_23/../src/mux31_5b.v" into library work
+Analyzing Verilog file "D:/COA_LAB/assignment_6/Assign_6_Grp_23/../src/mux31_32b.v" into library work
+Analyzing Verilog file "D:/COA_LAB/assignment_6/Assign_6_Grp_23/../src/ins_decode.v" into library work
+Analyzing Verilog file "D:/COA_LAB/assignment_6/Assign_6_Grp_23/../src/dff.v" into library work
+Analyzing Verilog file "D:/COA_LAB/assignment_6/Assign_6_Grp_23/../src/branch_pc.v" into library work
+Analyzing Verilog file "D:/COA_LAB/assignment_6/Assign_6_Grp_23/../src/branch_jmp.v" into library work
+Analyzing Verilog file "D:/COA_LAB/assignment_6/Assign_6_Grp_23/../src/alu.v" into library work
+Analyzing Verilog file "D:/COA_LAB/assignment_6/Assign_6_Grp_23/ipcore_dir/instruction_memory.v" into library work
+Analyzing Verilog file "D:/COA_LAB/assignment_6/Assign_6_Grp_23/ipcore_dir/data_memory.v" into library work
+Analyzing Verilog file "D:/COA_LAB/assignment_6/Assign_6_Grp_23/../src/datapath.v" into library work
+Analyzing Verilog file "D:/COA_LAB/assignment_6/Assign_6_Grp_23/../src/control_unit.v" into library work
+Analyzing Verilog file "D:/COA_LAB/assignment_6/Assign_6_Grp_23/../src/main.v" into library work
+Analyzing Verilog file "C:/Xilinx/14.7/ISE_DS/ISE//verilog/src/glbl.v" into library work
+Starting static elaboration
+WARNING:HDLCompiler:1016 - "D:/COA_LAB/assignment_6/Assign_6_Grp_23/../src/datapath.v" Line 59: Port wea is not connected to this instance
+WARNING:HDLCompiler:189 - "D:/COA_LAB/assignment_6/Assign_6_Grp_23/../src/datapath.v" Line 64: Size mismatch in connection of port <funct>. Formal port size is 5-bit while actual signal size is 6-bit.
+WARNING:HDLCompiler:189 - "D:/COA_LAB/assignment_6/Assign_6_Grp_23/../src/datapath.v" Line 88: Size mismatch in connection of port <rs_out>. Formal port size is 32-bit while actual signal size is 1-bit.
+WARNING:HDLCompiler:189 - "D:/COA_LAB/assignment_6/Assign_6_Grp_23/../src/datapath.v" Line 89: Size mismatch in connection of port <rt_out>. Formal port size is 32-bit while actual signal size is 1-bit.
+WARNING:HDLCompiler:189 - "D:/COA_LAB/assignment_6/Assign_6_Grp_23/../src/datapath.v" Line 94: Size mismatch in connection of port <funct>. Formal port size is 5-bit while actual signal size is 6-bit.
+WARNING:HDLCompiler:189 - "D:/COA_LAB/assignment_6/Assign_6_Grp_23/../src/datapath.v" Line 95: Size mismatch in connection of port <immediate>. Formal port size is 17-bit while actual signal size is 16-bit.
+WARNING:HDLCompiler:189 - "D:/COA_LAB/assignment_6/Assign_6_Grp_23/../src/datapath.v" Line 96: Size mismatch in connection of port <extend_immediate>. Formal port size is 32-bit while actual signal size is 1-bit.
+WARNING:HDLCompiler:189 - "D:/COA_LAB/assignment_6/Assign_6_Grp_23/../src/datapath.v" Line 100: Size mismatch in connection of port <in1>. Formal port size is 32-bit while actual signal size is 1-bit.
+WARNING:HDLCompiler:189 - "D:/COA_LAB/assignment_6/Assign_6_Grp_23/../src/datapath.v" Line 101: Size mismatch in connection of port <in2>. Formal port size is 32-bit while actual signal size is 1-bit.
+WARNING:HDLCompiler:1016 - "D:/COA_LAB/assignment_6/Assign_6_Grp_23/../src/alu.v" Line 41: Port propout is not connected to this instance
+WARNING:HDLCompiler:1016 - "D:/COA_LAB/assignment_6/Assign_6_Grp_23/../src/cla_32_lcu.v" Line 28: Port cout is not connected to this instance
+WARNING:HDLCompiler:1016 - "D:/COA_LAB/assignment_6/Assign_6_Grp_23/../src/cla_32_lcu.v" Line 29: Port cout is not connected to this instance
+WARNING:HDLCompiler:1016 - "D:/COA_LAB/assignment_6/Assign_6_Grp_23/../src/cla_16_lcu.v" Line 29: Port cout is not connected to this instance
+WARNING:HDLCompiler:1016 - "D:/COA_LAB/assignment_6/Assign_6_Grp_23/../src/cla_16_lcu.v" Line 30: Port cout is not connected to this instance
+WARNING:HDLCompiler:1016 - "D:/COA_LAB/assignment_6/Assign_6_Grp_23/../src/cla_16_lcu.v" Line 31: Port cout is not connected to this instance
+WARNING:HDLCompiler:1016 - "D:/COA_LAB/assignment_6/Assign_6_Grp_23/../src/cla_16_lcu.v" Line 32: Port cout is not connected to this instance
+WARNING:HDLCompiler:1016 - "D:/COA_LAB/assignment_6/Assign_6_Grp_23/../src/program_cnt_adder.v" Line 19: Port cout is not connected to this instance
+WARNING:HDLCompiler:189 - "D:/COA_LAB/assignment_6/Assign_6_Grp_23/../src/datapath.v" Line 133: Size mismatch in connection of port <rs>. Formal port size is 32-bit while actual signal size is 1-bit.
+WARNING:HDLCompiler:189 - "D:/COA_LAB/assignment_6/Assign_6_Grp_23/../src/main.v" Line 34: Size mismatch in connection of port <funct>. Formal port size is 5-bit while actual signal size is 6-bit.
+Completed static elaboration
+Compiling module shifter
+Compiling module dff
+Compiling module program_cnt
+Compiling module BLK_MEM_GEN_V7_3_output_stage(C_...
+Compiling module BLK_MEM_GEN_V7_3_softecc_output_...
+Compiling module BLK_MEM_GEN_V7_3_mem_module(C_CO...
+Compiling module BLK_MEM_GEN_V7_3(C_FAMILY="spart...
+Compiling module instruction_memory
+Compiling module ins_decode
+Compiling module mux31_5b
+Compiling module register_file
+Compiling module sign_extend
+Compiling module mux21_32b
+Compiling module lcu_16
+Compiling module lcu_4
+Compiling module cla_4_aug
+Compiling module cla_16_lcu
+Compiling module cla_32_lcu
+Compiling module alu
+Compiling module branch_jmp
+Compiling module program_cnt_adder
+Compiling module branch_pc
+Compiling module BLK_MEM_GEN_V7_3_output_stage(C_...
+Compiling module BLK_MEM_GEN_V7_3_mem_module(C_CO...
+Compiling module BLK_MEM_GEN_V7_3(C_FAMILY="spart...
+Compiling module data_memory
+Compiling module mux31_32b
+Compiling module datapath
+Compiling module control_unit
+Compiling module main
+Compiling module glbl
+Time Resolution for simulation is 1ps.
+Waiting for 24 sub-compilation(s) to finish...
+Compiled 31 Verilog Units
+Built simulation executable D:/COA_LAB/assignment_6/Assign_6_Grp_23/main_isim_beh.exe
+Fuse Memory Usage: 33256 KB
+Fuse CPU Usage: 718 ms

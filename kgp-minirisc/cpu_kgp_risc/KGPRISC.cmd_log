@@ -1,0 +1,2 @@
+xst -intstyle ise -ifn "D:/COA_LAB/assignment_6/cpu_kgp_risc/KGPRISC.xst" -ofn "D:/COA_LAB/assignment_6/cpu_kgp_risc/KGPRISC.syr" 
+xst -intstyle ise -ifn "D:/COA_LAB/assignment_6/cpu_kgp_risc/KGPRISC.xst" -ofn "D:/COA_LAB/assignment_6/cpu_kgp_risc/KGPRISC.syr" 

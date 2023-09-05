@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -o "D:/COA_LAB/assignment_6/cpu_kgp_risc/main_tb_isim_beh.exe" -prj "D:/COA_LAB/assignment_6/cpu_kgp_risc/main_tb_beh.prj" "work.main_tb" "work.glbl" 
